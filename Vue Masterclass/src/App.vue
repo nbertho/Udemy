@@ -1,9 +1,14 @@
 <template>
-  <h1>Hello</h1>
+  <MainNav />
 </template>
 
 <script>
+import MainNav from "@/components/MainNav";
+
 export default {
   name: "App",
+  components: {
+    MainNav,
+  },
 };
 </script>
