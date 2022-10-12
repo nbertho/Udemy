@@ -35,7 +35,7 @@
 </template>
 
 <script>
-import ActionButton from "@/components/ActionButton";
+import ActionButton from "@/components/Common/ActionButton";
 export default {
   name: "JobSearchForm",
   components: { ActionButton },
