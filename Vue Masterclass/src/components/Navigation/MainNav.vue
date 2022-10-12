@@ -4,9 +4,12 @@
       <div
         class="flex flex-nowrap h-full px-8 mx-auto border-b border-solid border-brand-gray-1"
       >
-        <a :href="url" class="flex items-center h-full text-xl">
-          {{ company }}
-        </a>
+        <router-link
+          :to="{ name: 'home' }"
+          class="flex items-center h-full text-xl"
+        >
+          My careers
+        </router-link>
         <nav class="h-full ml-12">
           <ul class="flex h-full p-0 m-0 list-none">
             <li
@@ -14,9 +17,12 @@
               :key="menuItem.name"
               class="h-full ml-9 first:ml-0"
             >
-              <a :href="menuItem.link" class="flex items-center h-full py-2.5">
+              <router-link
+                :to="menuItem.route"
+                class="flex items-center h-full py-2.5"
+              >
                 {{ menuItem.name }}
-              </a>
+              </router-link>
             </li>
           </ul>
         </nav>
@@ -31,6 +37,7 @@
 </template>
 
 <script>
+import nav from "@/data/nav";
 import ActionButton from "@/components/Common/ActionButton";
 import ProfileImage from "@/components/Navigation/ProfileImage";
 import SubNav from "@/components/Navigation/SubNav";
@@ -44,16 +51,7 @@ export default {
   },
   data() {
     return {
-      company: "My careers",
-      url: "https://careers.google.com",
-      menuItems: [
-        { name: "Teams", link: "#" },
-        { name: "Locations", link: "#" },
-        { name: "Life at Company", link: "#" },
-        { name: "How we hire", link: "#" },
-        { name: "Students", link: "#" },
-        { name: "Jobs", link: "#" },
-      ],
+      menuItems: nav.links,
       isLoggedIn: false,
     };
   },
