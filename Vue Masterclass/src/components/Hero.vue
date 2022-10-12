@@ -5,6 +5,7 @@
         <div class="col-start-1 col-span-1">&nbsp;</div>
         <div class="col-start-2 col-span-5">
           <Headline />
+          <JobSearchForm />
         </div>
         <div class="col-start-7 col-span-5"></div>
         <div class="col-start-12 col-span-1">&nbsp;</div>
@@ -15,11 +16,13 @@
 
 <script>
 import Headline from "@/components/Headline";
+import JobSearchForm from "@/components/JobSearchForm";
 
 export default {
   name: "Hero",
   components: {
     Headline,
+    JobSearchForm,
   },
 };
 </script>
