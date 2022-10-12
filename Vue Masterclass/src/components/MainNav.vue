@@ -25,6 +25,7 @@
           <ActionButton v-else text="Sign in" @click="loginUser" />
         </div>
       </div>
+      <SubNav v-if="isLoggedIn" />
     </div>
   </header>
 </template>
@@ -32,12 +33,14 @@
 <script>
 import ActionButton from "@/components/ActionButton";
 import ProfileImage from "@/components/ProfileImage";
+import SubNav from "@/components/SubNav";
 
 export default {
   name: "MainNav",
   components: {
     ActionButton,
     ProfileImage,
+    SubNav,
   },
   data() {
     return {
