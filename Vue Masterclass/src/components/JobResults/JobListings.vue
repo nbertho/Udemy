@@ -1,0 +1,15 @@
+<template>
+  <main class="flex-auto p-8 bg-brand-gray-2">
+    <ol>
+      <JobListing />
+    </ol>
+  </main>
+</template>
+
+<script>
+import JobListing from "@/components/JobResults/JobListing";
+export default {
+  name: "JobListings",
+  components: { JobListing },
+};
+</script>
