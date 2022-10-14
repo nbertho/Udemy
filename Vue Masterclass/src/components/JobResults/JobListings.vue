@@ -34,16 +34,14 @@
 </template>
 
 <script>
-import constants from "@/data/constants";
-import axios from "axios";
 import JobListing from "@/components/JobResults/JobListing";
+import storeActions from "@/data/storeActions";
 
 export default {
   name: "JobListings",
   components: { JobListing },
   data() {
     return {
-      jobs: [],
       amountOfJobShowed: 10,
     };
   },
@@ -57,19 +55,18 @@ export default {
     },
     nextPage() {
       let nextPage = this.currentPage + 1;
-      const maxPage = this.jobs.length / this.amountOfJobShowed;
+      const maxPage = this.$store.state.jobs.length / this.amountOfJobShowed;
       return nextPage <= maxPage ? nextPage : undefined;
     },
     displayedJobs() {
       let pageNumber = this.currentPage;
       let firstJobIndex = (pageNumber - 1) * this.amountOfJobShowed;
       let lastJobIndex = pageNumber * this.amountOfJobShowed;
-      return this.jobs.slice(firstJobIndex, lastJobIndex);
+      return this.$store.state.jobs.slice(firstJobIndex, lastJobIndex);
     },
   },
   async mounted() {
-    const response = await axios.get(constants.api.jobsIndex);
-    this.jobs = response.data;
+    this.$store.dispatch(storeActions.actions.fetchJobs);
   },
 };
 </script>

@@ -1,6 +1,6 @@
 const constants = {
   api: {
-    jobsIndex: "http://localhost:3000/jobs",
+    url: "http://localhost:3000",
   },
   headline: {
     actions: ["Build", "Create", "Design", "Code"],
