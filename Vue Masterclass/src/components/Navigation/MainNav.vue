@@ -38,6 +38,7 @@
 
 <script>
 import nav from "@/data/nav";
+import storeActions from "@/data/storeActions";
 import ActionButton from "@/components/Common/ActionButton";
 import ProfileImage from "@/components/Navigation/ProfileImage";
 import SubNav from "@/components/Navigation/SubNav";
@@ -52,7 +53,6 @@ export default {
   data() {
     return {
       menuItems: nav.links,
-      isLoggedIn: false,
     };
   },
   computed: {
@@ -62,10 +62,13 @@ export default {
         "h-32": this.isLoggedIn,
       };
     },
+    isLoggedIn() {
+      return this.$store.state.isLoggedIn;
+    },
   },
   methods: {
     loginUser() {
-      this.isLoggedIn = true;
+      this.$store.commit(storeActions.user.login);
     },
   },
 };
