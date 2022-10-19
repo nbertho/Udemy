@@ -1,6 +1,6 @@
 const nav = {
   links: [
-    { name: "Teams", link: "#", route: "/" },
+    { name: "Teams", link: "#", route: "/teams" },
     { name: "Locations", link: "#", route: "/" },
     { name: "Life at Company", link: "#", route: "/" },
     { name: "How we hire", link: "#", route: "/" },
