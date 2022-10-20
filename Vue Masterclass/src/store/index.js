@@ -18,6 +18,14 @@ export const mutations = {
   },
 };
 
+export const getters = {
+  getOrganizationsList(state) {
+    const uniqueOrganization = new Set();
+    state.jobs.forEach((job) => uniqueOrganization.add(job.organization));
+    return uniqueOrganization;
+  },
+};
+
 export const actions = {
   [storeActions.actions.fetchJobs]: async (context) => {
     const jobListing = await getJobs();
@@ -28,6 +36,7 @@ export const actions = {
 const store = createStore({
   state,
   mutations,
+  getters,
   actions,
   strict: process.env.NODE_ENV !== "production",
 });
