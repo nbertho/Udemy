@@ -26,6 +26,10 @@ export const getters = {
   },
 };
 
+export const setters = {
+  setOrganizationFilters(state, newData) {},
+};
+
 export const actions = {
   [storeActions.actions.fetchJobs]: async (context) => {
     const jobListing = await getJobs();
@@ -37,6 +41,7 @@ const store = createStore({
   state,
   mutations,
   getters,
+  setters,
   actions,
   strict: process.env.NODE_ENV !== "production",
 });
